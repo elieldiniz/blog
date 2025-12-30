@@ -23,15 +23,14 @@ Route::prefix('/app')->group(function(){
     return 'clientes';
     })->name('app.clientes');
 
-    Route::get('/fornecedores', function(){
-        return 'fornecedores';
-    })->name('app.fornecedores');
+    Route::get('/fornecedores','FornecedorController@index')->name('app.fornecedores');
 
     Route::get('/produtos', function(){
         return 'produtos';
     })->name('app.produtos');
 });
 
+Route::get('/test/{p1}/{p2}','TesteController@teste')->name('teste');
 
 Route::fallback(function(){
     echo 'A rota acessada não existe. <a href="'.route('site.index').'">Clique aqui</a> para ir para a página inicial.';
